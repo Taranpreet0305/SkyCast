@@ -6,43 +6,59 @@ const weatherIcon = document.querySelector(".weather-icons");
 
 async function checkWeather(city) {
     const response = await fetch(apiurl + city + '&appid=' + apikey);
-    if(response.status==404)
-    {
-        document.querySelector(".Error").style.display="block";
-        document.querySelector(".weather").style.display="none";
+    const weatherSection = document.querySelector(".weather");
+    const errorSection = document.querySelector(".Error");
+
+    if (response.status === 404) {
+        errorSection.style.display = "block";
+        weatherSection.style.display = "none";
+        return;
     }
-    else
-    {
-        document.querySelector(".weather").style.display="block";
-        document.querySelector(".Error").style.display="none";
-    }
+
     const info = await response.json();
-    console.log(info);
+    errorSection.style.display = "none";
+    weatherSection.style.display = "block";
 
-    document.querySelector(".city").innerHTML = info.name;
-    document.querySelector(".temp").innerHTML = Math.round(info.main.temp) + "°C";
-    document.querySelector(".humidity").innerHTML = info.main.humidity + "%";
-    document.querySelector(".wind").innerHTML = info.wind.speed + " Km/h";
+    document.querySelector(".city").textContent = info.name;
+    document.querySelector(".temp").textContent = Math.round(info.main.temp) + "°C";
+    document.querySelector(".humidity").textContent = info.main.humidity + "%";
+    document.querySelector(".wind").textContent = info.wind.speed + " Km/h";
 
-    // Use info (not DataTransfer)
-    if (info.weather[0].main == "Clouds") {
-        weatherIcon.src = "/Assets/Cloud Weather Icon.png";
-    } else if (info.weather[0].main == "Clear") {
-        weatherIcon.src = "/Assets/Clear Weather icon.png";
-    } else if (info.weather[0].main == "Drizzle") {
-        weatherIcon.src = "/Assets/Drizzle Weather icon.png";
-    } else if (info.weather[0].main == "Mist") {
-        weatherIcon.src = "/Assets/Mist Icon.png";
-    } else if (info.weather[0].main == "Rain") {
-        weatherIcon.src = "/Assets/Rain Icon.png";
-    } else if (info.weather[0].main == "Snow") {
-        weatherIcon.src = "/Assets/Snow Icon.png";
+    const condition = info.weather[0].main;
+    switch (condition) {
+        case "Clouds":
+            weatherIcon.src = "/Assets/Cloud Weather Icon.png";
+            weatherIcon.alt = "Cloudy Weather";
+            break;
+        case "Clear":
+            weatherIcon.src = "/Assets/Clear Weather icon.png";
+            weatherIcon.alt = "Clear Sky";
+            break;
+        case "Drizzle":
+            weatherIcon.src = "/Assets/Drizzle Weather icon.png";
+            weatherIcon.alt = "Drizzle";
+            break;
+        case "Mist":
+            weatherIcon.src = "/Assets/Mist Icon.png";
+            weatherIcon.alt = "Misty";
+            break;
+        case "Rain":
+            weatherIcon.src = "/Assets/Rain Icon.png";
+            weatherIcon.alt = "Rainy Weather";
+            break;
+        case "Snow":
+            weatherIcon.src = "/Assets/Snow Icon.png";
+            weatherIcon.alt = "Snowy Weather";
+            break;
+        default:
+            weatherIcon.src = "/Assets/Weather Default Icon.png";
+            weatherIcon.alt = "Weather Condition";
     }
+}
 
-    document.querySelector(".weather").style.display="block";
-} 
-
-// Add event listener for the search button
 searchBtn.addEventListener("click", () => {
-    checkWeather(searchBox.value);
+    const city = searchBox.value.trim();
+    if (city !== "") {
+        checkWeather(city);
+    }
 });
