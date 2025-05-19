@@ -1,49 +1,48 @@
-const apikey = "8YrvGJwvrIwJOsteYRXDOK21AgyJEWdu";
+const apikey = "376c2ac3227717c4ada5c1026faa4902";
+const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const searchBox = document.querySelector(".search input");
+const searchBtn = document.querySelector(".search button");
+const weatherIcon = document.querySelector(".weather-icons");
 
-// Step 1: Get location key for the city (e.g., Delhi)
-async function getLocationKey(city) {
-    const locationUrl = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apikey}&q=${city}`;
-    const response = await fetch(locationUrl);
-    const data = await response.json();
-    return data[0].Key; // Get the first matching location key
-}
-
-// Step 2: Get current weather conditions using location key
-async function checkWeather(city = "Delhi") {
-    try {
-        const locationKey = await getLocationKey(city);
-
-        const conditionsUrl = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apikey}`;
-        const response = await fetch(conditionsUrl);
-        const data = await response.json();
-        const weather = data[0];
-
-        console.log(weather);
-
-        document.querySelector(".city").innerHTML = city;
-        document.querySelector(".temp").innerHTML = weather.Temperature.Metric.Value + "°C";
-        document.querySelector(".humidity").innerHTML = (weather.RelativeHumidity || 'N/A') + "%";
-        document.querySelector(".wind").innerHTML = weather.Wind.Speed.Metric.Value + " km/h";
-
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
-        alert("City not found or API limit reached.");
+async function checkWeather(city) {
+    const response = await fetch(apiurl + city + '&appid=' + apikey);
+    if(response.status==404)
+    {
+        document.querySelector(".Error").style.display="block";
+        document.querySelector(".weather").style.display="none";
     }
-}
+    else
+    {
+        document.querySelector(".weather").style.display="block";
+        document.querySelector(".Error").style.display="none";
+    }
+    const info = await response.json();
+    console.log(info);
 
-// Listen for Enter key in the input
-document.addEventListener("DOMContentLoaded", () => {
-    const input = document.querySelector(".search input");
+    document.querySelector(".city").innerHTML = info.name;
+    document.querySelector(".temp").innerHTML = Math.round(info.main.temp) + "°C";
+    document.querySelector(".humidity").innerHTML = info.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = info.wind.speed + " Km/h";
 
-    input.addEventListener("keypress", function (e) {
-        if (e.key === "Enter") {
-            const city = input.value.trim();
-            if (city) {
-                checkWeather(city);
-            }
-        }
-    });
+    // Use info (not DataTransfer)
+    if (info.weather[0].main == "Clouds") {
+        weatherIcon.src = "/Assets/Cloud Weather Icon.png";
+    } else if (info.weather[0].main == "Clear") {
+        weatherIcon.src = "/Assets/Clear Weather icon.png";
+    } else if (info.weather[0].main == "Drizzle") {
+        weatherIcon.src = "/Assets/Drizzle Weather icon.png";
+    } else if (info.weather[0].main == "Mist") {
+        weatherIcon.src = "/Assets/Mist Icon.png";
+    } else if (info.weather[0].main == "Rain") {
+        weatherIcon.src = "/Assets/Rain Icon.png";
+    } else if (info.weather[0].main == "Snow") {
+        weatherIcon.src = "/Assets/Snow Icon.png";
+    }
+
+    document.querySelector(".weather").style.display="block";
+} 
+
+// Add event listener for the search button
+searchBtn.addEventListener("click", () => {
+    checkWeather(searchBox.value);
 });
-
-// Load default city
-checkWeather();
