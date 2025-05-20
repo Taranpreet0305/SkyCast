@@ -50,6 +50,14 @@ async function checkWeather(city) {
             weatherIcon.src = "/Assets/Snow Icon.png";
             weatherIcon.alt = "Snowy Weather";
             break;
+								case "Thunderstorm":
+            weatherIcon.src = "/Assets/Thunderstorm.png";
+            weatherIcon.alt = "Snowy Weather";
+            break;
+								case "Haze":
+            weatherIcon.src = "/Assets/Haze.png";
+            weatherIcon.alt = "Snowy Weather";
+            break;
         default:
             weatherIcon.src = "/Assets/Weather Default Icon.png";
             weatherIcon.alt = "Weather Condition";
