@@ -29,34 +29,42 @@ async function checkWeather(city) {
         case "Clouds":
             weatherIcon.src = "/Assets/Cloud Weather Icon.png";
             weatherIcon.alt = "Cloudy Weather";
+            document.body.style.backgroundImage = "url('Assets/Cloudbg.jpg')";
             break;
         case "Clear":
             weatherIcon.src = "/Assets/Clear Weather icon.png";
             weatherIcon.alt = "Clear Sky";
+            document.body.style.backgroundImage = "url('Assets/clearbg.jpg')";
             break;
         case "Drizzle":
             weatherIcon.src = "/Assets/Drizzle Weather icon.png";
             weatherIcon.alt = "Drizzle";
+            document.body.style.backgroundImage = "url('Assets/Drizzlebg.png')";
             break;
         case "Mist":
             weatherIcon.src = "/Assets/Mist Icon.png";
             weatherIcon.alt = "Misty";
+            document.body.style.backgroundImage = "url('Assets/Mistbg.jpg')";
             break;
         case "Rain":
             weatherIcon.src = "/Assets/Rain Icon.png";
             weatherIcon.alt = "Rainy Weather";
+            document.body.style.backgroundImage = "url('Assets/Rainbg.jpg')";
             break;
         case "Snow":
             weatherIcon.src = "/Assets/Snow Icon.png";
             weatherIcon.alt = "Snowy Weather";
+            document.body.style.backgroundImage = "url('Assets/Snowbg.jpg')";
             break;
-								case "Thunderstorm":
+			case "Thunderstorm":
             weatherIcon.src = "/Assets/Thunderstorm.png";
-            weatherIcon.alt = "Snowy Weather";
+            weatherIcon.alt = "Thunderstorm Weather";
+            document.body.style.backgroundImage = "url('Assets/Thunderstormbg.jpg')";
             break;
-								case "Haze":
+			case "Haze":
             weatherIcon.src = "/Assets/Haze.png";
-            weatherIcon.alt = "Snowy Weather";
+            weatherIcon.alt = "Haze Weather";
+            document.body.style.backgroundImage = "url('Assets/Hazebg.jpg')";
             break;
         default:
             weatherIcon.src = "/Assets/Weather Default Icon.png";

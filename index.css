@@ -1,3 +1,9 @@
+:root 
+{
+    --card-padding: clamp(20px, 5vw, 50px);
+    --font-size: clamp(18px, 2vw, 30px);
+    --search-height: clamp(35px, 4vh, 50px);
+}
 *
 {
     margin:0;
@@ -7,18 +13,23 @@
 }
 body
 {
-   background: #222; 
+    background-image: url('Assets/bg.avif');
+    background-size: 200%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out;
 }
+
 .card
 {
     width: 90%;
-    max-width: 470px;
+    max-width: 700px;
     background: linear-gradient(135deg,#3a2f82,#120c3d);
     color: #fff;
     margin: 20px auto 0;
     margin-bottom: 20px;
-    border-radius: 20px;
-    padding: 40px 35px;
+    border-radius: 2vw;
+    padding: var(--card-padding);    
     text-align: center;
 }
 .logo
@@ -53,11 +64,12 @@ body
     border-radius: 30px;
     flex: 1;
     margin-right: 5px;
-    font-size: 20px;
+    font-size: var(--font-size);    
     border-color: #3a2f82;
     background: #fff;
-    height: 40px;
+    height: var(--search-height);    
     width:200px;
+    padding: 10px;
 }
 .search button
 {
@@ -68,6 +80,10 @@ body
     width: 40px;
     height: 40px;
     cursor: pointer;
+}
+.search button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
 }
 .search img
 {
@@ -146,6 +162,14 @@ body
     .card {
         padding: 20px 15px;
     }
+    body
+    {
+    background-image: url('Assets/bg.avif');
+    background-size: 400%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out;
+    }
     .logo {
         flex-direction: column;
         align-items: center;
@@ -177,6 +201,14 @@ body
         padding: 35px 30px;
     }
 
+    body
+    {
+    background-image: url('Assets/bg.avif');
+    background-size: 500%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out;
+    }
     .logo {
         flex-direction: row;
         justify-content: center;
@@ -259,7 +291,14 @@ body
         margin-top: 40px;
         border-radius: 25px;
     }
-
+    body
+    {
+    background-image: url('Assets/bg.avif');
+    background-size: 500%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.8s ease-in-out;
+    }
     .logo {
         justify-content: center;
         gap: 20px;
@@ -319,4 +358,20 @@ body
         font-size: 48px;
         margin-top: 40px;
     }
+}
+.weather.show,.Error.show 
+{
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease forwards;
+}
+.weather,.Error
+{
+    opacity: 4;
+    transform: translateY(10px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
