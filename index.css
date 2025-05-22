@@ -369,7 +369,7 @@ body
 {
     opacity: 4;
     transform: translateY(10px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
