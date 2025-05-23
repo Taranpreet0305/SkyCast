@@ -32,6 +32,8 @@ body
     border-radius: 2vw;
     padding: var(--card-padding);    
     text-align: center;
+    justify-self:center;
+    align-self:center;
 }
 .logo
 {
