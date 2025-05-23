@@ -22,11 +22,11 @@ body
 
 .card
 {
-    width: 100%;
+    width: 90%;
     max-width: 700px;
     background: rgba(0, 0, 0, 0.4);
     color: #fff;
-    margin: 20px auto 0;
+    margin: auto 0;
     margin-bottom: 20px;
     border-radius: 2vw;
     padding: var(--card-padding);    
