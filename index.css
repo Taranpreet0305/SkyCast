@@ -27,6 +27,7 @@ body
     background: rgba(0, 0, 0, 0.4);
     color: #fff;
     margin: 2px ;
+    margin-left:5px;
     margin-bottom: 20px;
     border-radius: 2vw;
     padding: var(--card-padding);    
