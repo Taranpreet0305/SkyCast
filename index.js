@@ -122,8 +122,11 @@ async function checkWeather(city) {
     }
 }
 
-searchBtn.addEventListener("click", () => {
-    const city = searchBox.value.trim();
+const searchForm = document.getElementById("searchForm");
+
+searchForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent form reload
+    const city = document.getElementById("searchInput").value.trim();
     if (city !== "") {
         checkWeather(city);
     }

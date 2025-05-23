@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SkyCast - Real-time weather updates for your city. Check temperature, humidity, and wind speed.">
-    <meta name="keywords" content="Weather, SkyCast, Forecast, Weather App, Temperature, Humidity, Wind">
-    <meta name="author" content="SkyCast Team">
-    <title>SkyCast - Real-Time Weather App</title>
-    <link href="index.css" rel="stylesheet">
-</head>
-<body class="body">
-    <main class="card">
-        <header class="logo">
-            <img src="/Assets/Logo.png" alt="SkyCast Logo">
-            <h1>SkyCast</h1>
-        </header>
-
-        <section class="search">
-            <input type="text" placeholder="Enter City Name" spellcheck="false" aria-label="City name input">
-            <button aria-label="Search Button"><img src="/Assets/Search.png" alt="Search Icon"></button>
-        </section>
-
-        <section class="Error" role="alert">
-            <p>Invalid City Name</p>
-        </section>
-        <section class="weather">
-        <div class="weather-layout">
-            <div class="weather-left">
-            <img src="/Assets/Rain Icon.png" alt="Weather Icon" class="weather-icons">
-            <h2 class="condition"></h2>
-            <h3 class="temp"></h3>
-            <h4 class="city"></h4>
-            </div>
-
-            <div class="weather-right">
-            <div class="col">
-                <img src="/Assets/Humidity Icon.png" alt="Humidity Icon">
-                <div>
-                <p class="humidity"></p>
-                <p>Humidity</p>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="SkyCast provides real-time weather updates including temperature, humidity, and wind speed for cities worldwide.">
+        <meta name="keywords" content="Weather, Weather App, SkyCast, Real-time Forecast, Temperature, Humidity, Wind Speed, City Weather">
+        <meta name="author" content="SkyCast Team">
+        <meta property="og:title" content="SkyCast - Real-Time Weather Updates">
+        <meta property="og:description" content="Get real-time weather forecasts for any city. Check temperature, humidity, and wind speed instantly.">
+        <meta property="og:image" content="/Assets/Logo.png">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://sky-cast-kappa.vercel.app/">
+        <title>SkyCast - Real-Time Weather App</title>
+        <link href="index.css" rel="stylesheet">
+    </head>
+    <body class="body">
+        <main class="card">
+            <header class="logo">
+                <img src="/Assets/Logo.png" alt="SkyCast Logo">
+                <h1>SkyCast</h1>
+            </header>
+            <form class="search" id="searchForm">
+                <input type="text" placeholder="Enter City Name" spellcheck="false" aria-label="City name input" id="searchInput">
+                <button type="submit" aria-label="Search Button">
+                    <img src="/Assets/Search.png" width="30px" height="30px" alt="Search Icon">
+                </button>
+            </form>
+            <section class="Error" role="alert">
+                <p>Invalid City Name</p>
+            </section>
+            <section class="weather">
+                <div class="weather-layout">
+                    <div class="weather-left">
+                        <img src="/Assets/Rain Icon.png" alt="Weather Icon" class="weather-icons">
+                        <h2 class="condition"></h2>
+                        <h3 class="temp"></h3>
+                        <h4 class="city"></h4>
+                    </div>
+                    <div class="weather-right">
+                        <div class="col">
+                            <img src="/Assets/Humidity Icon.png" alt="Humidity Icon">
+                            <div>
+                            <p class="humidity"></p>
+                            <p>Humidity</p>
+                        </div>
+                        <div class="col">
+                            <img src="/Assets/Wind Icon.png" alt="Wind Icon">
+                            <div>
+                                <p class="wind"></p>
+                                <p>Wind Speed</p>
+                            </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col">
-                <img src="/Assets/Wind Icon.png" alt="Wind Icon">
-                <div>
-                <p class="wind"></p>
-                <p>Wind Speed</p>
-                </div>
-            </div>
-            </div>
-        </div>
-        </section>
-    </main>
-    <script src="index.js"></script>
-</body>
-</html>
+            </section>
+        </main>
+        <script src="index.js"></script>
+    </body>
+    </html>
