@@ -89,7 +89,7 @@ body {
     border: 0;
     background: #fff;
     border-radius: 50%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     cursor: pointer;
