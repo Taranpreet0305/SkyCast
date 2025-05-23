@@ -32,6 +32,6 @@ SkyCast is a sleek and responsive web application that provides **real-time weat
 - **CSS3**
 - **JavaScript (Vanilla JS)**
 - **OpenWeatherMap API** 
-- **Hosting via Vercel*
+- **Hosting via Vercel**
 
 ---
