@@ -24,27 +24,32 @@
         <section class="Error" role="alert">
             <p>Invalid City Name</p>
         </section>
-
         <section class="weather">
+        <div class="weather-layout">
+            <div class="weather-left">
             <img src="/Assets/Rain Icon.png" alt="Weather Icon" class="weather-icons">
-            <h2 class="temp">22°C</h2>
-            <h3 class="city">New Delhi</h3>
-            <div class="info">
-                <div class="col">
-                    <img src="/Assets/Humidity Icon.png" alt="Humidity Icon">
-                    <div>
-                        <p class="humidity">50%</p>
-                        <p>Humidity</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="/Assets/Wind Icon.png" alt="Wind Icon">
-                    <div>
-                        <p class="wind">15 Km/h</p>
-                        <p>Wind Speed</p>
-                    </div>
+            <h2 class="condition"></h2>
+            <h3 class="temp"></h3>
+            <h4 class="city"></h4>
+            </div>
+
+            <div class="weather-right">
+            <div class="col">
+                <img src="/Assets/Humidity Icon.png" alt="Humidity Icon">
+                <div>
+                <p class="humidity"></p>
+                <p>Humidity</p>
                 </div>
             </div>
+            <div class="col">
+                <img src="/Assets/Wind Icon.png" alt="Wind Icon">
+                <div>
+                <p class="wind"></p>
+                <p>Wind Speed</p>
+                </div>
+            </div>
+            </div>
+        </div>
         </section>
     </main>
     <script src="index.js"></script>

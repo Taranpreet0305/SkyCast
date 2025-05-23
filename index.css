@@ -24,7 +24,7 @@ body
 {
     width: 90%;
     max-width: 700px;
-    background: linear-gradient(135deg,#3a2f82,#120c3d);
+    background: rgba(0, 0, 0, 0.4);
     color: #fff;
     margin: 20px auto 0;
     margin-bottom: 20px;
@@ -106,44 +106,79 @@ body
     font-size: 55px;
     font-weight: 500;
     margin-top: -20px;
+    margin-bottom: 3px;
 }
 .weather h3
 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 400;
     margin-top: -5px; 
 }
-.info
+.weather h4
 {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 0 35px;
-     margin-top: 20px;
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 2px;
 }
-.info img
-{
-    height: 70px;
-    width:70px;
+.weather-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: nowrap;
 }
-.col
-{
+
+.weather-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+
+.weather-right .col {
     display: flex;
     align-items: center;
-    text-align: left;
-    margin-top: 10px;
+    gap: 10px;
+    min-width: 180px;
+    flex-direction: column;
 }
-.col img
-{
-    margin: auto;
+
+.weather-right .col img {
+    width: 150px;
+    height: 120px;
 }
-.col p
-{
-    margin-left: 5px;
+
+.weather-right .col div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
+
+.weather-right .col p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    align-self: center;
+    margin-left: 30px;
+    justify-self: center;
+}
+
 .humidity, .wind
 {
-    font-size: 20px; 
+    font-size: 20px;
+    margin-right: 20px  ; 
 }
 .weather
 {
@@ -161,11 +196,42 @@ body
 @media (max-width: 600px) {
     .card {
         padding: 20px 15px;
+        margin: 10px;
+    }
+    .weather img{
+        width: 150px;
+    };
+    .weather h2
+    {
+        font-size: 20px;
+    }
+    .weather h3
+    {
+        font-size: 20px;
+    }
+    .weather h4
+    {
+        font-size: 30px;
+    }
+    .weather-layout {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    .weather-right, .weather-left
+    {
+        flex: 1;
+        align-items: center;
+        text-align: center;
+    }
+    .weather-right {
+        align-items: flex-start;
+        margin-top: 20px;
     }
     body
     {
     background-image: url('Assets/bg.avif');
-    background-size: 400%;
+    background-size: 600%;
     background-position-x: center;
     background-repeat: no-repeat;
     transition: background-image 0.8s ease-in-out;
@@ -363,13 +429,13 @@ body
 {
     opacity: 1;
     transform: translateY(0);
-    animation: fadeIn 0.3s ease forwards;
+    animation: fadeIn 0.5s ease forwards;
 }
 .weather,.Error
 {
     opacity: 4;
     transform: translateY(10px);
-    transition: opacity 0.1s ease, transform 0.1s ease;
+    transition: opacity 0.9s ease, transform 0.9s ease;
 }
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
