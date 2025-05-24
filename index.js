@@ -4,28 +4,27 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icons");
 
-async function checkWeather(city) {
+async function checkWeather(city) 
+{
     const response = await fetch(apiurl + city + '&appid=' + apikey);
     const weatherSection = document.querySelector(".weather");
     const errorSection = document.querySelector(".Error");
-
-    if (response.status === 404) {
+    if (response.status === 404) 
+    {
         errorSection.style.display = "block";
         weatherSection.style.display = "none";
         return;
     }
-
     const info = await response.json();
     errorSection.style.display = "none";
     weatherSection.style.display = "block";
-
     document.querySelector(".city").textContent = info.name;
     document.querySelector(".temp").textContent = Math.round(info.main.temp) + "°C";
     document.querySelector(".humidity").textContent = info.main.humidity + "%";
     document.querySelector(".wind").textContent = info.wind.speed + " Km/h";
-
     const condition = info.weather[0].main;
-    switch (condition) {
+    switch (condition) 
+    {
         case "Clouds":
             weatherIcon.src = "/Assets/Cloud Weather Icon.png";
             weatherIcon.alt = "Cloudy Weather";
@@ -123,7 +122,6 @@ async function checkWeather(city) {
 }
 
 const searchForm = document.getElementById("searchForm");
-
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault(); // Prevent form reload
     const city = document.getElementById("searchInput").value.trim();
