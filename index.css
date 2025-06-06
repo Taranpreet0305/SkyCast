@@ -3,6 +3,7 @@
     --card-padding: clamp(20px, 5vw, 50px);
     --font-size: clamp(18px, 2vw, 30px);
     --search-height: clamp(35px, 4vh, 50px);
+    --main-color:#ffffff;
 }
 * 
 {
@@ -166,9 +167,34 @@ body
     background: rgba(0, 0, 0, 0.2);
     padding: 1rem;
     font-size: 1.2rem;
-    color: #655858;
+    text-shadow: #ffffff;
+    color: #ffffff;
     margin-top: 20px;
     font-weight: 500;
+    text-shadow: 
+        -1px -1px 0 #fff,  
+        1px -1px 0 #fff,  
+        -1px 1px 0 #fff,  
+        1px 1px 0 #fff;
+    animation: glowText 5s infinite alternate;
+}
+.credit
+{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+}
+.credit h4
+{
+    margin: 0;
+    padding: 5px;
+    text-shadow: 
+    -1px -1px 0 #fff,  
+    1px -1px 0 #fff,  
+    -1px 1px 0 #fff,  
+    1px 1px 0 #fff;
 }
 @media (max-width: 600px) 
 {
@@ -201,4 +227,8 @@ body
     {
         max-width: 750px;
     }
+}
+@keyframes glowText {
+  0%, 100% { text-shadow: 0 0 5px var(--main-color); }
+  50% { text-shadow: 0 0 15px var(--main-color); }
 }
